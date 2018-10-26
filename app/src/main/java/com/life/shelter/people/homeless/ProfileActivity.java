@@ -28,6 +28,8 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ProfileActivity extends AppCompatActivity {
     EditText nameEditUser;
     Button buttonsaveuser;
@@ -37,7 +39,8 @@ public class ProfileActivity extends AppCompatActivity {
     public static final int PICK_IMAGE_user = 1;
     private FirebaseAuth mAuth;
 
-    String ss="a";
+    String ss = "a";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +49,13 @@ public class ProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        nameEditUser= (EditText)findViewById(R.id.user_name);
+        nameEditUser = (EditText) findViewById(R.id.user_name);
 
-        buttonsaveuser= (Button) findViewById(R.id.button_save_user);
-        photoUserEdit=(ImageView) findViewById(R.id.user_photo);
-        progressBarUser= findViewById(R.id.progressbar_user);
+        buttonsaveuser = (Button) findViewById(R.id.button_save_user);
+        photoUserEdit = (ImageView) findViewById(R.id.user_photo);
+        progressBarUser = (ProgressBar) findViewById(R.id.progressbar_user);
+        buttonsaveuser.setVisibility(View.GONE);
+        nameEditUser.setEnabled(false);
 
 
         photoUserEdit.setOnClickListener(new View.OnClickListener() {
@@ -76,12 +81,12 @@ public class ProfileActivity extends AppCompatActivity {
     private void loadUserInfo() {
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
-            if(user.getPhotoUrl() != null){
+            if (user.getPhotoUrl() != null) {
                 Glide.with(this)
                         .load(user.getPhotoUrl().toString())
                         .into(photoUserEdit);
             }
-            if(user.getDisplayName() != null){
+            if (user.getDisplayName() != null) {
                 nameEditUser.setText(user.getDisplayName());
             }
 
@@ -93,13 +98,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null  && imagepathUser != null) {
+        if (user != null && imagepathUser != null) {
             if (displayiedusername.isEmpty()) {
                 nameEditUser.setError("User name is required");
                 nameEditUser.requestFocus();
-                return;}
+                return;
+            }
             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                    .setDisplayName(displayiedusername )
+                    .setDisplayName(displayiedusername)
                     .setPhotoUri(Uri.parse(ss))
                     .build();
 
@@ -110,12 +116,15 @@ public class ProfileActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Toast.makeText(ProfileActivity.this, "profile updated", Toast.LENGTH_LONG).show();
                                 finish();
+                                buttonsaveuser.setVisibility(View.GONE);
+                                nameEditUser.setEnabled(false);
+
                             }
                         }
                     });
 
-        }else{
-            startActivity(new Intent(ProfileActivity.this,Login.class));
+        } else {
+            startActivity(new Intent(ProfileActivity.this, Login.class));
         }
     }
 
@@ -125,13 +134,14 @@ public class ProfileActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_user);
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_user && resultCode == RESULT_OK && data != null&& data.getData() != null) {
-            imagepathUser=data.getData();
+        if (requestCode == PICK_IMAGE_user && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            imagepathUser = data.getData();
             try {
-                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),imagepathUser);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imagepathUser);
                 photoUserEdit.setImageBitmap(bitmap);
                 uploadimage();
             } catch (IOException e) {
@@ -139,9 +149,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }
     }
-    private void uploadimage(){
+
+    private void uploadimage() {
         if (imagepathUser != null) {
             progressBarUser.setVisibility(View.VISIBLE);
+            buttonsaveuser.setVisibility(View.VISIBLE);
+            nameEditUser.setEnabled(true);
 
             // StorageReference mStorageRef = FirebaseStorage.getInstance().getReference("profilepics/pro.jpg");
             StorageReference mStorageRef = FirebaseStorage.getInstance().getReference("profilepic/" + System.currentTimeMillis() + ".jpg");
@@ -167,7 +180,8 @@ public class ProfileActivity extends AppCompatActivity {
 
                         }
                     });
-        }else {    Toast.makeText(ProfileActivity.this, "error ocoured while  uploading image", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(ProfileActivity.this, "error ocoured while  uploading image", Toast.LENGTH_LONG).show();
         }
     }
 }

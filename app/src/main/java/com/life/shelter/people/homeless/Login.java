@@ -42,7 +42,7 @@ import custom_font.MyTextView;
 
     public class Login extends AppCompatActivity {
         TextView shelter;
-
+        long time;
 
         private MyTextView singin, create, forget;
         private MyEditText editTextemail, editTextPassword;
@@ -305,5 +305,17 @@ import custom_font.MyTextView;
 
             dialog.show();
         }
+        @Override
+        public void onBackPressed() {
 
+
+            if (time + 2000 > System.currentTimeMillis()) {
+
+                super.onBackPressed();
+            } else {
+                Toast.makeText(Login.this, "Press Again To Exit", Toast.LENGTH_SHORT).show();
+            }
+            time = System.currentTimeMillis();
+
+        }
     }

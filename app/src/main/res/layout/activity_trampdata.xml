@@ -103,6 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Save data"
+            android:background="@drawable/button_round_red"
             android:textColor="#000000" />
 
 

@@ -246,7 +246,7 @@ public class CountryActivity extends AppCompatActivity {
 
             //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-            img5.setImageResource(R.drawable.logo);
+            img5.setImageResource(R.mipmap.icon);
             txt5.setText("مؤسسة حمزة الخطيب الخيرية");
             webSite5.setOnClickListener(new View.OnClickListener() {
                 @Override

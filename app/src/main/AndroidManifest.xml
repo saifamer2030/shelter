@@ -21,9 +21,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
@@ -155,7 +155,6 @@
         <activity android:name=".displayOrganizations" />
         <activity android:name=".recycleadapter.GalleryActivity"
             android:theme="@style/AppThemeno"/>
-        <activity android:name=".Donate"></activity>
     </application>
 
 </manifest>

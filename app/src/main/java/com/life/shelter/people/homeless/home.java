@@ -43,6 +43,7 @@ import android.widget.SearchView;
 import android.app.SearchManager;
 
 import android.widget.SearchView.OnQueryTextListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
@@ -51,7 +52,11 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -71,8 +76,8 @@ import java.util.Locale;
 
 
 public class home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-
+        implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
+    private RewardedVideoAd mRewardedVideoAd;
     private FirebaseAuth mAuth;
     private StorageReference mStorageRef;
     private DatabaseReference databaseHome;
@@ -83,11 +88,10 @@ public class home extends AppCompatActivity
     ImageView addTrampButton;
     private ProgressBar progressBar;
     List<HomeFirebaseClass> trampList;
-
-
     private AdView adView;
     private InterstitialAd mInterstitialAd;
     long time;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +100,11 @@ public class home extends AppCompatActivity
 
 
         /// ads Admob Saif Amer
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
+
+
+
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-7419949159214590~4023134282");
         adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -117,11 +126,9 @@ public class home extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         addTrampButton = (ImageView) findViewById(R.id.add_tramp_h);
         progressBar = (ProgressBar) findViewById(R.id.home_progress_bar);
         mAuth = FirebaseAuth.getInstance();
-
         databaseHome = FirebaseDatabase.getInstance().getReference("homedb");
         databaseReg = FirebaseDatabase.getInstance().getReference("reg_data");
         mStorageRef = FirebaseStorage.getInstance().getReference("trrrrr");
@@ -130,7 +137,6 @@ public class home extends AppCompatActivity
         trampList = new ArrayList<>();
         listViewTramp.setTextFilterEnabled(true);
         removeFocus();
-
 
         addTrampButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,18 +194,42 @@ public class home extends AppCompatActivity
             Intent it = new Intent(home.this, About.class);
             startActivity(it);
         } else if (id == R.id.nav_faq) {
+            // ads
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
 
             Intent it = new Intent(home.this, FAQ.class);
             startActivity(it);
         } else if (id == R.id.nav_charitable) {
+            // ads
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
 
             Intent it = new Intent(home.this, CharitableOrganizations.class);
             startActivity(it);
         } else if (id == R.id.nav_supporting) {
+            // ads
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
 
             Intent it = new Intent(home.this, Supporting.class);
             startActivity(it);
         } else if (id == R.id.nav_developers) {
+            // ads
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
 
             Intent it = new Intent(home.this, Developers.class);
             startActivity(it);
@@ -225,10 +255,22 @@ public class home extends AppCompatActivity
             dialog.show();
 
         } else if (id == R.id.nav_profile) {
+            // ads
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
 
             Intent it = new Intent(home.this, ProfileActivity.class);
             startActivity(it);
         } else if (id == R.id.nav_homed) {
+            // ads
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
 
             Intent it = new Intent(home.this, displayOrganizations.class);
             startActivity(it);
@@ -243,15 +285,17 @@ public class home extends AppCompatActivity
 
         {
             // ads
-            if (mInterstitialAd.isLoaded()) {
+            /*if (mInterstitialAd.isLoaded()) {
                 mInterstitialAd.show();
             } else {
                 Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }*/
+
+            //ad Rewarded
+            loadRewardedVideoAd();
+            if (mRewardedVideoAd.isLoaded()) {
+                mRewardedVideoAd.show();
             }
-
-
-            startActivity(new Intent(home.this, Donate.class));
-
 
         }
 
@@ -395,5 +439,50 @@ public class home extends AppCompatActivity
         }
         time = System.currentTimeMillis();
 
+    }
+
+    private void loadRewardedVideoAd() {
+        mRewardedVideoAd.loadAd("ca-app-pub-7419949159214590/7292584434",
+                new AdRequest.Builder().build());
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Toast.makeText(this, "Please watch the video until the endleas ", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+        Toast.makeText(this, "Thanx For Supporting Us", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
+        Toast.makeText(this, "Sorry for not having any video now please try again", Toast.LENGTH_LONG).show();
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
     }
 }

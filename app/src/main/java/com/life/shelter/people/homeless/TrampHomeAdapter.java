@@ -483,11 +483,6 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
                 .setValue(homeFirebaseClass);
     }
 
-    /**
-     *  Delete or Edit item data
-     * @param item HomeFirebaseClass
-     * @param position index of item in list
-     */
     private void showItemDialog(final HomeFirebaseClass item, int position) {
         final Dialog dialog = new Dialog(context);
         final int itemIndex = position;

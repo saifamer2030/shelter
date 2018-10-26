@@ -276,14 +276,14 @@
     <string name="address">Type the address here</string>
     <string name="city">Write the city and state</string>
     <!-- ABOUT -->
-    <string name="about_text">هنا سوف نضع فقرة تتحدّث عن الهدف الإنساني الذي من أجله قمنا بإنشاء هذا التّطبيق</string>
+    <string name="about_text"> لماذا "ملجأ" ؟ \n لنكن عوناً لمن لا عون له\n  لنجد مأوى لمن لا مكان له\n ليجدوا سقفاً يحميهم من برد الشتاء وحرارة الصيف \n حتى يستقيم المجتمع </string>
     <string name="instagram">Instagram</string>
     <string name="facebook">Facebook</string>
     <string name="twitter">Twitter</string>
     <string name="donate">Donate</string>
     <!-- Navigation drawer -->
     <string name="shelter">Shelter ملجأ</string>
-    <string name="mail">shelter.new.life@gmail.com</string>
+    <string name="mail">shelter@shelter.com</string>
     <string name="home">Home</string>
     <string name="account">Account</string>
     <string name="faq">FAQ</string>

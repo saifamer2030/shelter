@@ -69,7 +69,7 @@ public class Register extends AppCompatActivity {
     DatabaseReference databaseReg;
     FirebaseAuth mAuth;
     LinearLayout linearLayoutCode,linearLayoutNumperPhone;
-
+    long time;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -268,5 +268,18 @@ public class Register extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+    @Override
+    public void onBackPressed() {
+
+
+        if (time + 2000 > System.currentTimeMillis()) {
+
+            super.onBackPressed();
+        } else {
+            Toast.makeText(Register.this, "Press Again To Exit", Toast.LENGTH_SHORT).show();
+        }
+        time = System.currentTimeMillis();
+
     }
 }

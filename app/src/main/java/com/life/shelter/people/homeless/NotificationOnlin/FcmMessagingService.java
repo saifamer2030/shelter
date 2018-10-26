@@ -27,7 +27,7 @@ public class FcmMessagingService extends FirebaseMessagingService {
             PendingIntent notification = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_ONE_SHOT);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-            builder.setSmallIcon(R.drawable.logo);
+            builder.setSmallIcon(R.mipmap.icon);
             builder.setContentTitle(title);
             builder.setContentText(message);
             builder.setContentIntent(notification);
