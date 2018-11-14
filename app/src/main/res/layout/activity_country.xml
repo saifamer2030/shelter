@@ -54,7 +54,7 @@
         android:layout_marginLeft="24dp"
         android:background="#ccffff"
         android:layout_toRightOf="@+id/org_image1"
-        android:text="Website" />
+        android:text="@string/Website" />
 
     <TextView
         android:id="@+id/website1_2"
@@ -65,7 +65,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1"
-        android:text="Facebook" />
+        android:text="@string/facebook" />
 
     <TextView
         android:id="@+id/website1_3"
@@ -76,7 +76,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1_2"
-        android:text="Donate" />
+        android:text="@string/donate" />
 
 
 
@@ -115,7 +115,7 @@
         android:layout_marginLeft="24dp"
         android:background="#ccffff"
         android:layout_toRightOf="@+id/org_image2"
-        android:text="Website" />
+        android:text="@string/Website" />
 
     <TextView
         android:id="@+id/website2_2"
@@ -126,7 +126,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1"
-        android:text="Facebook" />
+        android:text="@string/facebook" />
 
     <TextView
         android:id="@+id/website2_3"
@@ -137,7 +137,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1_2"
-        android:text="Donate" />
+        android:text="@string/donate" />
 
 
     <ImageView
@@ -174,7 +174,7 @@
         android:layout_marginLeft="24dp"
         android:background="#ccffff"
         android:layout_toRightOf="@+id/org_image3"
-        android:text="Website" />
+        android:text="@string/Website" />
 
     <TextView
         android:id="@+id/website3_2"
@@ -185,7 +185,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1"
-        android:text="Facebook" />
+        android:text="@string/facebook" />
 
     <TextView
         android:id="@+id/website3_3"
@@ -196,7 +196,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1_2"
-        android:text="Donate" />
+        android:text="@string/donate" />
 
     <ImageView
         android:layout_marginTop="30dp"
@@ -232,7 +232,7 @@
         android:layout_marginLeft="24dp"
         android:background="#ccffff"
         android:layout_toRightOf="@+id/org_image4"
-        android:text="Website" />
+        android:text="@string/Website" />
 
     <TextView
         android:id="@+id/website4_2"
@@ -243,7 +243,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1"
-        android:text="Facebook" />
+        android:text="@string/facebook" />
 
     <TextView
         android:id="@+id/website4_3"
@@ -254,7 +254,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1_2"
-        android:text="Donate" />
+        android:text="@string/donate" />
 
 
 
@@ -292,7 +292,7 @@
         android:layout_marginLeft="24dp"
         android:background="#ccffff"
         android:layout_toRightOf="@+id/org_image1"
-        android:text="Website" />
+        android:text="@string/Website" />
 
     <TextView
         android:id="@+id/website5_2"
@@ -303,7 +303,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1"
-        android:text="Facebook" />
+        android:text="@string/facebook" />
 
     <TextView
         android:id="@+id/website5_3"
@@ -314,7 +314,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/website1_2"
-        android:text="Donate" />
+        android:text="@string/donate" />
 
 
 </RelativeLayout>

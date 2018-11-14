@@ -2,6 +2,7 @@ package com.life.shelter.people.homeless;
 
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         progressBar = (ProgressBar) findViewById(R.id.progress);
         textView = (TextView) findViewById(R.id.text_progress);
@@ -40,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(8000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }finally {
@@ -53,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
 
     public void progressAnimation(){
         ProgressBarAnimation animation = new ProgressBarAnimation(this,progressBar,textView,0f,100f);
-        animation.setDuration(8000);
+        animation.setDuration(5000);
         progressBar.setAnimation(animation);
         
     }

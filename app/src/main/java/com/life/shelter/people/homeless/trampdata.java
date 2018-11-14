@@ -3,6 +3,7 @@ package com.life.shelter.people.homeless;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.net.ConnectivityManager;
@@ -80,7 +81,7 @@ public class trampdata extends AppCompatActivity {
         buttonSave = (Button) findViewById(R.id.button);
         photoEdit = (ImageView) findViewById(R.id.edit_photo);
         progressBar = findViewById(R.id.progressbar);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         photoEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +132,7 @@ public class trampdata extends AppCompatActivity {
                         getRegData();
                         reloadCount++;
                     } else {
-                        Toast.makeText(trampdata.this, "an error occurred", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(trampdata.this, R.string.an_error_occurred, Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -177,7 +178,7 @@ public class trampdata extends AppCompatActivity {
                 uploadImage();
 
             } else {
-                Toast.makeText(this, "you should fill all fields", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.you_should_fill_all_fields, Toast.LENGTH_LONG).show();
                 progressBar.setVisibility(View.GONE);
                 buttonSave.setEnabled(true);
 
@@ -261,7 +262,7 @@ public class trampdata extends AppCompatActivity {
                             public void onFailure(@NonNull Exception exception) {
                                 progressBar.setVisibility(View.GONE);
 
-                                Toast.makeText(trampdata.this, "an error occurred while  uploading image", Toast.LENGTH_LONG).show();
+                                Toast.makeText(trampdata.this, R.string.an_error_occurred_while_uploading_image, Toast.LENGTH_LONG).show();
                                 progressBar.setVisibility(View.GONE);
                                 buttonSave.setEnabled(true);
 
@@ -269,7 +270,7 @@ public class trampdata extends AppCompatActivity {
                         });
             }
         } else {
-            Toast.makeText(trampdata.this, "please check the network connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(trampdata.this, R.string.check_the_network, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -277,7 +278,7 @@ public class trampdata extends AppCompatActivity {
 
         final Dialog dialog = new Dialog(trampdata.this);
         dialog.setContentView(R.layout.import_image_dialog);
-        dialog.setTitle("Import image");
+        dialog.setTitle(R.string.import_image);
         dialog.setCanceledOnTouchOutside(false);
 
         TextView gallery = (TextView) dialog.findViewById(R.id.gallery_tv);
@@ -323,7 +324,7 @@ public class trampdata extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), GALLERY_REQUEST_CODE);
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.select_picture)), GALLERY_REQUEST_CODE);
     }
 
     private void uploadData() {
@@ -343,7 +344,7 @@ public class trampdata extends AppCompatActivity {
         databaseHome.child(country).child(id).setValue(homefirebaseclass);
         Log.v("Data"," 3-User id :"+ mUserId);
 
-        Toast.makeText(this, "tramp data saved", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, R.string.tramp_data_saved, Toast.LENGTH_LONG).show();
         nameEditText.setText("");
         addressEditText.setText("");
         cityEditText.setText("");

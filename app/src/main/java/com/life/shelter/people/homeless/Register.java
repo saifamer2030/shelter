@@ -3,6 +3,7 @@ package com.life.shelter.people.homeless;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -74,7 +75,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         shelter = (TextView) findViewById(R.id.title_reister);
         Typeface custom_fonts = Typeface.createFromAsset(getAssets(), "fonts/ArgonPERSONAL-Regular.otf");
         shelter.setTypeface(custom_fonts);
@@ -170,59 +171,59 @@ public class Register extends AppCompatActivity {
 
         if (spinnerType.getSelectedItem().equals("Organization")) {
             if (WEBSITE.isEmpty()) {
-                CodeText.setError("Web site is required");
+                CodeText.setError(getString(R.string.web_site_is_required));
                 CodeText.requestFocus();
                 return;
             }
             if (!Patterns.WEB_URL.matcher(WEBSITE).matches()) {
-                CodeText.setError("Please enter valid Web site");
+                CodeText.setError(getString(R.string.please_enter_valid_web_site));
                 CodeText.requestFocus();
                 return;
             }
             if (NumberPhone.isEmpty()) {
-                NumperPhone.setError("Number phone is required");
+                NumperPhone.setError(getString(R.string.number_phone_is_required));
                 NumperPhone.requestFocus();
                 return;
             }
             if (!Patterns.PHONE.matcher(NumberPhone).matches()) {
-                NumperPhone.setError("Please enter valid Phone Number");
+                NumperPhone.setError(getString(R.string.please_enter_valid_phone_number));
                 NumperPhone.requestFocus();
                 return;
             }
         
         }
         if (mEmail.isEmpty()) {
-            editTextEmail.setError("Email is required");
+            editTextEmail.setError(getString(R.string.email_is_required));
             editTextEmail.requestFocus();
             return;
         }
 
         if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()) {
-            editTextEmail.setError("Please enter a valid email");
+            editTextEmail.setError(getString(R.string.please_enter_a_valid_email));
             editTextEmail.requestFocus();
             return;
         }
 
         if (mPassword.length() < 6) {
-            editTextPassword.setError("Minimum length of password should be 6");
+            editTextPassword.setError(getString(R.string.minimum_length_of_password_should_be));
             editTextPassword.requestFocus();
             return;
         }
 
         if (mPassword.isEmpty()) {
-            editTextPassword.setError("Password is required");
+            editTextPassword.setError(getString(R.string.password_is_required));
             editTextPassword.requestFocus();
             return;
         }
 
         if (mCPassword.isEmpty()) {
-            editTextCPassword.setError("you should confirm your password");
+            editTextCPassword.setError(getString(R.string.you_should_confirm_your_password));
             editTextCPassword.requestFocus();
             return;
         }
 
         if (!mCPassword.equals(mPassword)) {
-            editTextCPassword.setError("it must be the same as password");
+            editTextCPassword.setError(getString(R.string.it_must_be_the_same_as_password));
             editTextCPassword.requestFocus();
             return;
         }
@@ -234,7 +235,7 @@ public class Register extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
-                        Toast.makeText(Register.this, "USER CREATED", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, R.string.user_created, Toast.LENGTH_SHORT).show();
                         RegisterClass regdata = new RegisterClass(mEmail, mCountry, mtype,WEBSITE, NumberPhone);
                         databaseReg.child(mAuth.getCurrentUser().getUid()).setValue(regdata);
 
@@ -246,15 +247,15 @@ public class Register extends AppCompatActivity {
                     } else {
                         //Log.e(TAG, task.getException().getMessage());
                         if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                            Toast.makeText(Register.this, "you are already registered", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, R.string.you_are_already_registered, Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(Register.this, "REGISTER ERROR", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, R.string.register_error, Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
             });
         } else {
-            Toast.makeText(this, "please check the network connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.check_the_network, Toast.LENGTH_LONG).show();
             progressBar.setVisibility(View.GONE);
         }
     }
@@ -277,7 +278,7 @@ public class Register extends AppCompatActivity {
 
             super.onBackPressed();
         } else {
-            Toast.makeText(Register.this, "Press Again To Exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Register.this, R.string.exit, Toast.LENGTH_SHORT).show();
         }
         time = System.currentTimeMillis();
 

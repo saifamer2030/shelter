@@ -50,7 +50,7 @@
                     android:id="@+id/textview_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tramp name"
+                    android:text="@string/tramp_name"
                     android:textColor="#000000" />
 
                 <EditText
@@ -60,14 +60,14 @@
                     android:maxLines="1"
                     android:inputType="textPersonName"
                     android:layout_marginBottom="15dp"
-                    android:hint="Enter tramp name" />
+                    android:hint="@string/enter_tramp_name" />
 
                 <TextView
                     android:id="@+id/textview_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
-                    android:text="Address"
+                    android:text="@string/address_tramp"
                     android:textColor="#000000" />
 
                 <EditText
@@ -77,14 +77,14 @@
                     android:layout_marginBottom="15dp"
                     android:maxLines="1"
                     android:inputType="textPostalAddress"
-                    android:hint="Enter tramp address" />
+                    android:hint="@string/enter_tramp_address" />
 
                 <TextView
                     android:id="@+id/textview_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
-                    android:text="City"
+                    android:text="@string/city_tramp"
                     android:textColor="#000000" />
 
                 <EditText
@@ -94,7 +94,7 @@
                     android:layout_marginBottom="15dp"
                     android:maxLines="1"
                     android:inputType="textPostalAddress"
-                    android:hint="Enter city" />
+                    android:hint="@string/enter_city" />
             </LinearLayout>
         </LinearLayout>
 
@@ -102,7 +102,7 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save data"
+            android:text="@string/save_data"
             android:background="@drawable/button_round_red"
             android:textColor="#000000" />
 

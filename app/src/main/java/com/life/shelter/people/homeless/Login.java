@@ -1,6 +1,7 @@
 package com.life.shelter.people.homeless;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,7 +56,7 @@ import custom_font.MyTextView;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
-
+            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             shelter = (TextView)findViewById(R.id.title_login);
             Typeface custom_fonts = Typeface.createFromAsset(getAssets(), "fonts/ArgonPERSONAL-Regular.otf");
             shelter.setTypeface(custom_fonts);
@@ -108,12 +109,12 @@ import custom_font.MyTextView;
             String mEmail = editTextemail.getText().toString().trim();
 
             if (mEmail.isEmpty()) {
-                editTextemail.setError("Email is required");
+                editTextemail.setError(getString(R.string.email_is_required));
                 editTextemail.requestFocus();
                 return;}
 
             if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()) {
-                editTextemail.setError("Please enter a valid email");
+                editTextemail.setError(getString(R.string.please_enter_a_valid_email));
                 editTextemail.requestFocus();
                 return;}
 
@@ -122,12 +123,12 @@ import custom_font.MyTextView;
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(Login.this, "Chech your email", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, R.string.check_your_email, Toast.LENGTH_SHORT).show();
                                 //Log.d(TAG, "Email sent.");
                             }else {
                                 // Log.e(TAG, task.getException().getMessage());
                                 //Log.e(TAG, "SIGNIN ERROR");
-                                Toast.makeText(Login.this, "Something error", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, R.string.something_error, Toast.LENGTH_SHORT).show();
 
                             }
                         }
@@ -139,22 +140,22 @@ import custom_font.MyTextView;
             String mPassword = editTextPassword.getText().toString().trim();
 
             if (mEmail.isEmpty()) {
-                editTextemail.setError("Email is required");
+                editTextemail.setError(getString(R.string.please_enter_a_valid_email));
                 editTextemail.requestFocus();
                 return;}
 
             if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()) {
-                editTextemail.setError("Please enter a valid email");
+                editTextemail.setError(getString(R.string.please_enter_a_valid_email));
                 editTextemail.requestFocus();
                 return;}
 
             if (mPassword.length()<6) {
-                editTextPassword.setError("Minimum length of password should be 6");
+                editTextPassword.setError(getString(R.string.minimum_length_of_password_should_be));
                 editTextPassword.requestFocus();
                 return;}
 
             if (mPassword.isEmpty()) {
-                editTextPassword.setError("Password is required");
+                editTextPassword.setError(getString(R.string.password_is_required));
                 editTextPassword.requestFocus();
                 return;}
 
@@ -167,7 +168,7 @@ import custom_font.MyTextView;
                         progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             //Log.d(TAG, "SIGNIN SUCCESS");
-                            Toast.makeText(Login.this, "SIGNIN SUCCESS", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, R.string.signin_success, Toast.LENGTH_SHORT).show();
                             Intent intend= new Intent(Login.this, home.class);
                             intend.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             finish();
@@ -177,14 +178,14 @@ import custom_font.MyTextView;
                         } else {
                             // Log.e(TAG, task.getException().getMessage());
                             //Log.e(TAG, "SIGNIN ERROR");
-                            Toast.makeText(Login.this, "SIGNIN ERROR", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, R.string.signin_error, Toast.LENGTH_SHORT).show();
 
                         }
                     }
 
                 });
             } else {
-                Toast.makeText(this, "please check the network connection", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.check_the_network, Toast.LENGTH_LONG).show();
                 progressBar.setVisibility(View.GONE);
             }
         }
@@ -229,9 +230,9 @@ import custom_font.MyTextView;
         private void displayResetPasswordDialog(String email) {
 
             AlertDialog alertDialog = new AlertDialog.Builder(Login.this).create();
-            alertDialog.setTitle("reset_password_dialog_title");
-            alertDialog.setMessage("sending_email");
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+            alertDialog.setTitle(getString(R.string.reset_password_dialog_title));
+            alertDialog.setMessage(getString(R.string.sending_email));
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, getString(R.string.ok),
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -258,12 +259,12 @@ import custom_font.MyTextView;
                     final String mEmail = editTextemail.getText().toString().trim();
 
                     if (mEmail.isEmpty()) {
-                        editTextemail.setError("Email is required");
+                        editTextemail.setError(getString(R.string.email_is_required));
                         editTextemail.requestFocus();
                         return;}
 
                     if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()) {
-                        editTextemail.setError("Please enter a valid email");
+                        editTextemail.setError(getString(R.string.please_enter_a_valid_email));
                         editTextemail.requestFocus();
                         return;}
 
@@ -280,13 +281,13 @@ import custom_font.MyTextView;
                                             displayResetPasswordDialog(mEmail);
                                             dialog.dismiss();
                                         } else {
-                                            errorMessage.setText("reset password error message");
+                                            errorMessage.setText(R.string.password_error);
                                             progressBar.setVisibility(View.GONE);
                                         }
                                     }
                                 });
                     } else {
-                        Toast.makeText(Login.this, "network connection error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, R.string.connection_error, Toast.LENGTH_LONG).show();
                         progressBar.setVisibility(View.GONE);
                     }
 
@@ -313,7 +314,7 @@ import custom_font.MyTextView;
 
                 super.onBackPressed();
             } else {
-                Toast.makeText(Login.this, "Press Again To Exit", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, R.string.exit, Toast.LENGTH_SHORT).show();
             }
             time = System.currentTimeMillis();
 

@@ -1,6 +1,7 @@
 package com.life.shelter.people.homeless;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,7 +34,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity {
     EditText nameEditUser;
     Button buttonsaveuser;
-    ImageView photoUserEdit;
+    CircleImageView photoUserEdit;
     private ProgressBar progressBarUser;
     private Uri imagepathUser;
     public static final int PICK_IMAGE_user = 1;
@@ -45,14 +46,16 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getSupportActionBar().setTitle(R.string.profile);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth = FirebaseAuth.getInstance();
 
 
         nameEditUser = (EditText) findViewById(R.id.user_name);
 
         buttonsaveuser = (Button) findViewById(R.id.button_save_user);
-        photoUserEdit = (ImageView) findViewById(R.id.user_photo);
+        photoUserEdit = (CircleImageView) findViewById(R.id.user_photo);
         progressBarUser = (ProgressBar) findViewById(R.id.progressbar_user);
         buttonsaveuser.setVisibility(View.GONE);
         nameEditUser.setEnabled(false);
@@ -100,7 +103,7 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null && imagepathUser != null) {
             if (displayiedusername.isEmpty()) {
-                nameEditUser.setError("User name is required");
+                nameEditUser.setError(getString(R.string.name_is_required));
                 nameEditUser.requestFocus();
                 return;
             }
@@ -114,7 +117,7 @@ public class ProfileActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(ProfileActivity.this, "profile updated", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ProfileActivity.this, R.string.profile_updated, Toast.LENGTH_LONG).show();
                                 finish();
                                 buttonsaveuser.setVisibility(View.GONE);
                                 nameEditUser.setEnabled(false);
@@ -168,7 +171,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                             ss = taskSnapshot.getDownloadUrl().toString();
 
-                            Toast.makeText(ProfileActivity.this, "image uploaded", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ProfileActivity.this, R.string.image_uploaded, Toast.LENGTH_LONG).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -176,12 +179,12 @@ public class ProfileActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception exception) {
                             progressBarUser.setVisibility(View.GONE);
 
-                            Toast.makeText(ProfileActivity.this, "error ocoured while  uploading image", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ProfileActivity.this, R.string.error, Toast.LENGTH_LONG).show();
 
                         }
                     });
         } else {
-            Toast.makeText(ProfileActivity.this, "error ocoured while  uploading image", Toast.LENGTH_LONG).show();
+            Toast.makeText(ProfileActivity.this, R.string.error, Toast.LENGTH_LONG).show();
         }
     }
 }

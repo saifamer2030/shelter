@@ -4,6 +4,6 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:padding="5dip"
-    android:text="Choose"
+    android:text="@string/choose"
     android:textColor="#c90d0d"
     android:textSize="20sp" />

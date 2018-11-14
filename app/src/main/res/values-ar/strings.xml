@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">shelter</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="fb_app_id">279363979553079</string>
+    <string name="fb_login_protocol">fb279363979553079</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="ads_app">ca-app-pub-7419949159214590~4023134282</string>
+    <string name="banner_ads">ca-app-pub-7419949159214590/3639990908</string>
+    <string name="admob_publisher_interstitial_id">ca-app-pub-7419949159214590/4249067821</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <!-- Home and Account -->
+    <string name="search">ابحث هنا</string>
+    <string name="camera">افتح الكاميرا</string>
+    <string name="submit">خضع</string>
+    <string name="cancel">إلغاء</string>
+    <string name="name">اسم الشخص</string>
+    <string name="address">اكتب العنوان هنا</string>
+    <string name="city">اكتب المدينة والدولة</string>
+    <!-- ABOUT -->
+    <string name="about_text">لماذا "المأوى"؟ \n دعنا نساعد أولئك الذين لا يساعدونه \n للعثور على مأوى لأولئك الذين ليس لديهم مكان \n للعثور على سقف يحميهم من برد الشتاء وحرارة الصيف \n حتى يصبح المجتمع على حق </string>
+    <string name="instagram">الانستقرام</string>
+    <string name="facebook">فيس بوك</string>
+    <string name="twitter">تويتر</string>
+    <string name="donate">تبرع</string>
+    <!-- Navigation drawer -->
+    <string name="shelter">مأوى </string>
+    <string name="mail">shelter@shelter.com</string>
+    <string name="home">الصفحة الرئيسية</string>
+    <string name="account">الحساب</string>
+    <string name="faq">التعليمات</string>
+    <string name="charitable">المنظمات الخيرية</string>
+    <string name="supporting">US SUPPORTING</string>
+    <string name="follow_us">تابعنا</string>
+    <string name="app_logo">app logo</string>
+
+    <string name="developers">المطورون</string>
+    <string name="communicate">Communicate</string>
+    <string name="share">شارك</string>
+    <string name="rate">قيمنا</string>
+    <string name="support_logo">support_logo</string>
+
+    <!-- Rate -->
+    <string name="rate_app">قيم هذا التطبيق</string>
+    <string name="rate_text">إذا كنت تستمتع باستخدام هذا التطبيق ، هل تمانع لحظة لتقييمه؟ لن يستغرق الأمر أكثر من دقيقة. شكرا لدعمكم !</string>
+    <string name="rate_now">قيم الآن</string>
+    <string name="later">في وقت لاحق</string>
+    <string name="no_thanks">لا شكرا</string>
+    <!-- Login and Register -->
+    <string name="email">ضع بريدك الالكتروني هنا</string>
+    <string name="password">اكتب كلمة المرور</string>
+    <string name="forgot_password">نسيت رقمك السري ؟</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="register">التسجيل</string>
+    <string name="ttwiterr">تويتر</string>
+    <string name="insta">الانستقرام</string>
+    <string name="check_the_network">يرجى التحقق من اتصال الشبكة</string>
+    <string name="alfirdaws_association">جمعية الفردوس</string>
+    <string name="no_website">لا يوجد موقع</string>
+    <string name="no_onation">لا توجد تفاصيل تبرع</string>
+    <string name="risala_association">جمعية رساله</string>
+    <string name="caritas_egypt_association">جمعية كاريتاس مصر</string>
+    <string name="to_save_a_human">جمعية لإنقاذ إنسان</string>
+    <string name="hamza_khatib_charity_association">جمعية حمزة الخطيب الخيرية</string>
+    <string name="basma_for_accommodation">بسمة للسكن</string>
+    <string name="volunteer_malahum_association">جمعية ملهم التطوعية</string>
+    <string name="alrahmat_alealamia_association">جمعية الرحمة العالمية</string>
+    <string name="international_humanitarian_relief">الإغاثة الإنسانية الدولية</string>
+    <string name="nasayim_alkhayr_alkhayria_organization">نسايم الخير الخيرية</string>
+    <string name="kolna_shabab_libia_organization">مؤسسة كلنا شباب ليبيا</string>
+    <string name="eata_alkhayria_association">جمعية ايتاء الخير</string>
+    <string name="qatar_alkhayria">قطر الخير</string>
+    <string name="eyd_alkhayria">عيد الخيرية</string>
+    <string name="um_el_qura_association_for_relief_and_development">جمعية أم القرى للإغاثة والتنمية</string>
+    <string name="humanitarian_care_association">جمعية الرعاية الانسانية</string>
+    <string name="safaqis_alkhayria">صفاقص الخير</string>
+    <string name="doctors_across_continents">الأطباء عبر القارات</string>
+    <string name="programs_of_the_danish_refugee_council_in_turkey">برامج المجلس الدانمركي للاجئين في تركيا</string>
+    <string name="dar_albar_association">جمعية دار البر</string>
+    <string name="data_updated">تحديث البيانات</string>
+    <string name="fields">يجب عليك ملء جميع الحقول</string>
+    <string name="email_is_required">البريد الالكتروني مطلوب</string>
+    <string name="please_enter_a_valid_email">يرجى إدخال البريد الإلكتروني الصحيح</string>
+    <string name="check_your_email">تحقق من بريدك الالكتروني</string>
+    <string name="something_error">خطأ ما</string>
+    <string name="minimum_length_of_password_should_be">يجب أن يكون الحد الأدنى لطول كلمة المرور 6</string>
+    <string name="password_is_required">كلمة المرور مطلوبة</string>
+    <string name="signin_success">تسجيل في النجاح</string>
+    <string name="signin_error">تسجيل الدخول خطأ</string>
+    <string name="reset_password_dialog_title">إعادة تعيين كلمة المرور</string>
+    <string name="sending_email">إرسال البريد الإلكتروني</string>
+    <string name="ok">حسنا</string>
+    <string name="password_error">إعادة تعيين كلمة مرور خطأ</string>
+    <string name="connection_error">خطأ في اتصال الشبكة</string>
+    <string name="exit">اضغط مرة أخرى للخروج</string>
+    <string name="name_is_required">اسم المستخدم مطلوب</string>
+    <string name="profile_updated">تحديث الملف الشخصي</string>
+    <string name="image_uploaded">تم تحميل الصورة</string>
+    <string name="error">حدث خطأ أثناء تحميل الصورة</string>
+    <string name="web_site_is_required">موقع الويب مطلوب</string>
+    <string name="please_enter_valid_web_site">الرجاء إدخال موقع ويب صالح</string>
+    <string name="number_phone_is_required">رقم الهاتف مطلوب</string>
+    <string name="please_enter_valid_phone_number">الرجاء إدخال رقم هاتف صحيح</string>
+    <string name="you_should_confirm_your_password">عليك أن تؤكد كلمة سرك</string>
+    <string name="it_must_be_the_same_as_password">يجب أن يكون نفس كلمة المرور</string>
+    <string name="user_created">مستخدم تم إنشاؤه</string>
+    <string name="you_are_already_registered">انت مسجل مسبقا</string>
+    <string name="register_error">تسجيل خطأ</string>
+    <string name="an_error_occurred">حدث خطأ</string>
+    <string name="you_should_fill_all_fields">يجب عليك ملء جميع الحقول</string>
+    <string name="an_error_occurred_while_uploading_image">حدث خطأ أثناء تحميل الصورة</string>
+    <string name="import_image">استيراد الصور</string>
+    <string name="select_picture">اختر الصورة</string>
+    <string name="tramp_data_saved">تم حفظ البيانات المشرد</string>
+    <string name="you_must_be_an_organization">يجب أن تكون منظمة</string>
+    <string name="tramp_is_housed">تسكين المتشرد</string>
+    <string name="Website">موقع الكتروني</string>
+    <string name="email_put">البريد الإلكتروني</string>
+    <string name="password_put">كلمه السر</string>
+    <string name="login_put">تسجيل الدخول</string>
+    <string name="forget_pass">نسيت رقمك السري ؟</string>
+    <string name="create_account">إنشاء حساب</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="your_name">اسمك</string>
+    <string name="save">حفظ</string>
+    <string name="email_address">عنوان بريد الكتروني"</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="choose_your_country">اختر بلدك</string>
+    <string name="choose_your_type">اختر النوع الخاص بك</string>
+    <string name="singup">التسجيل</string>
+    <string name="tramp_name">اسم المشرد</string>
+    <string name="enter_tramp_name">أدخل اسم المتشرد</string>
+    <string name="address_tramp">عنوان</string>
+    <string name="enter_tramp_address">أدخل عنوان المشرد</string>
+    <string name="city_tramp">مدينة</string>
+    <string name="enter_city">إدخل المدينة</string>
+    <string name="save_data">احفظ البيانات</string>
+    <string name="reset_password">إعادة تعيين كلمة المرور</string>
+    <string name="please_enter_your_email_address">الرجاء إدخال عنوان البريد الإلكتروني الخاص بك :</string>
+    <string name="edit">تصحيح</string>
+    <string name="delete">حذف</string>
+    <string name="update">تحديث</string>
+    <string name="choose">أختر</string>
+    <string name="name_n">اسم</string>
+    <string name="homed">تم التسكين</string>
+    <string name="title_home">الفريق البرمجي</string>
+    <string name="title_dashboard">فريق XML</string>
+    <string name="title_notifications">فريق التصميم</string>
+    <string name="rate_s">قيمنا</string>
+    <string name="if_you">إذا كنت تحب ذلك ، يرجى تقييمه.</string>
+    <string name="quit">هل أنت متأكد من أنك تريد الخروج؟</string>
+    <string name="sign_out">خروج</string>
+    <string name="charitable_organizations">المنظمات الخيرية</string>
+    <string name="homed_in_organizations">المشردين في المنظمات</string>
+    <string name="about">حول</string>
+    <string name="tramps">المشردين</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="not_housed">غير مسكن</string>
+    <string name="unknown">اسم غير معروف</string>
+    <string name="tools">ادوات</string>
+    <string name="our_web_site">موقعنا</string>
+
+
+
+
+</resources>

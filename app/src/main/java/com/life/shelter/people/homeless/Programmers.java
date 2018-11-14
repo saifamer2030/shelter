@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -78,7 +79,7 @@ public class Programmers extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m2act);
         listView =(ListView) findViewById(android.R.id.list);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         array_sort=new ArrayList<String> (Arrays.asList(listview_names));
         array_sort1=new ArrayList<String> (Arrays.asList(listview_emails));
         array_sort2=new ArrayList<String> (Arrays.asList(listview_linkedin));

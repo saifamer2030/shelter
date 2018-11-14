@@ -1,6 +1,7 @@
 package com.life.shelter.people.homeless;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +27,7 @@ public class CountryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_country);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
 
@@ -67,13 +68,13 @@ public class CountryActivity extends AppCompatActivity {
 
         if (movedCountryName2.equals("Algeria")){
             img1.setImageResource(R.drawable.ferdustunisia);
-            txt1.setText("جمعية الفردوس");
+            txt1.setText(R.string.alfirdaws_association);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Website Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_website,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -89,7 +90,7 @@ public class CountryActivity extends AppCompatActivity {
             donate1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donation Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -129,7 +130,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Egypt")){
             img1.setImageResource(R.drawable.resala);
-            txt1.setText("مؤسسة رسالة");
+            txt1.setText(R.string.risala_association);
             webSite1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -159,7 +160,7 @@ public class CountryActivity extends AppCompatActivity {
             //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
             img2.setImageResource(R.drawable.caritasegy);
-            txt2.setText("جمعية كاريتاس مصر");
+            txt2.setText(R.string.caritas_egypt_association);
             webSite2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -189,7 +190,7 @@ public class CountryActivity extends AppCompatActivity {
             //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
             img3.setImageResource(R.drawable.maana);
-            txt3.setText("مؤسسة معانا لإنقاذ إنسان");
+            txt3.setText(R.string.to_save_a_human);
             webSite3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -210,7 +211,7 @@ public class CountryActivity extends AppCompatActivity {
             donate3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donation Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),  R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -219,11 +220,11 @@ public class CountryActivity extends AppCompatActivity {
             //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
             img4.setImageResource(R.drawable.basmaeyg);
-            txt4.setText("بسمه للإيواء");
+            txt4.setText(R.string.basma_for_accommodation);
             webSite4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Website Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_website,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -239,7 +240,7 @@ public class CountryActivity extends AppCompatActivity {
             donate4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donation Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -247,7 +248,7 @@ public class CountryActivity extends AppCompatActivity {
             //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
             img5.setImageResource(R.mipmap.icon);
-            txt5.setText("مؤسسة حمزة الخطيب الخيرية");
+            txt5.setText(R.string.hamza_khatib_charity_association);
             webSite5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -286,7 +287,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Jordon")){
             img1.setImageResource(R.drawable.molhemjordan);
-            txt1.setText("فريق ملهم التطوعي");
+            txt1.setText(R.string.volunteer_malahum_association);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -351,7 +352,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Kuwait")){
             img1.setImageResource(R.drawable.rahmaintkuwait);
-            txt1.setText("الرحمة العالمية");
+            txt1.setText(R.string.alrahmat_alealamia_association);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -415,7 +416,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Lebanon")){
             img1.setImageResource(R.drawable.ihrelieflebanono);
-            txt1.setText("هيئة الإغاثة الإنسانية الدولية");
+            txt1.setText(R.string.international_humanitarian_relief);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -481,13 +482,13 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Libya")){
             img1.setImageResource(R.drawable.nasaaemlibya);
-            txt1.setText("منظمة نسائم الخير للأعمال الخيرية");
+            txt1.setText(R.string.nasayim_alkhayr_alkhayria_organization);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Website Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_website,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -503,7 +504,7 @@ public class CountryActivity extends AppCompatActivity {
             donate1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donate Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -512,13 +513,13 @@ public class CountryActivity extends AppCompatActivity {
 
 
             img2.setImageResource(R.drawable.kolonalibya);
-            txt2.setText("منظمة كلنا شباب ليبيا");
+            txt2.setText(R.string.kolna_shabab_libia_organization);
 
 
             webSite2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Website Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_website,Toast.LENGTH_LONG).show();
 
                 }
             });
@@ -535,7 +536,7 @@ public class CountryActivity extends AppCompatActivity {
             donate2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donate Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -568,7 +569,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Morocco")){
             img1.setImageResource(R.drawable.ataamorocco);
-            txt1.setText("مؤسسة عطاء الخيرية");
+            txt1.setText(R.string.eata_alkhayria_association);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -591,7 +592,7 @@ public class CountryActivity extends AppCompatActivity {
             donate1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donate Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -632,7 +633,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Qatar")){
             img1.setImageResource(R.drawable.charityqatar);
-            txt1.setText("قطر الخيرية");
+            txt1.setText(R.string.qatar_alkhayria);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -655,14 +656,14 @@ public class CountryActivity extends AppCompatActivity {
             donate1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donate Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
 
 
             img2.setImageResource(R.drawable.eidqatar);
-            txt2.setText("عيد الخيرية");
+            txt2.setText(R.string.eyd_alkhayria);
 
 
             webSite2.setOnClickListener(new View.OnClickListener() {
@@ -685,7 +686,7 @@ public class CountryActivity extends AppCompatActivity {
             donate2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donate Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -720,7 +721,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Saudi Arabia")){
             img1.setImageResource(R.drawable.umalqurasa);
-            txt1.setText("جمعية ام القرى للاغاثة والتنمية");
+            txt1.setText(R.string.um_el_qura_association_for_relief_and_development);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -743,7 +744,7 @@ public class CountryActivity extends AppCompatActivity {
             donate1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donate Details Found",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation,Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -781,7 +782,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Syria")) {
             img1.setImageResource(R.drawable.humancaresyria);
-            txt1.setText("جمعية الرعاية الإنسانية");
+            txt1.setText(R.string.humanitarian_care_association);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -812,7 +813,7 @@ public class CountryActivity extends AppCompatActivity {
 
 
             img2.setImageResource(R.drawable.ataasyria);
-            txt2.setText("جمعية عطاء للإغاثة الإنسانية");
+            txt2.setText(R.string.eata_alkhayria_association);
             webSite2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -833,7 +834,7 @@ public class CountryActivity extends AppCompatActivity {
             donate2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donate Details Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation, Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -867,7 +868,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Tunisia")){
             img1.setImageResource(R.drawable.safaxtunisia);
-            txt1.setText("صفاقس الخيرية");
+            txt1.setText(R.string.safaqis_alkhayria);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -934,7 +935,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("Turkey")) {
             img1.setImageResource(R.drawable.pacturkey);
-            txt1.setText("أطباء عبر القارات تركيا");
+            txt1.setText(R.string.doctors_across_continents);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -957,14 +958,14 @@ public class CountryActivity extends AppCompatActivity {
             donate1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getApplicationContext(), "No Donate Details Found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.no_onation, Toast.LENGTH_LONG).show();
                 }
             });
 
 
 
             img2.setImageResource(R.drawable.drcturkey);
-            txt2.setText("برامج المجلس الدنماركي للاجئين في تركيا");
+            txt2.setText(R.string.programs_of_the_danish_refugee_council_in_turkey);
             webSite2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -1016,7 +1017,7 @@ public class CountryActivity extends AppCompatActivity {
 
         else if (movedCountryName2.equals("United Arab Emirates")){
             img1.setImageResource(R.drawable.daralbiruae);
-            txt1.setText("جمعية دار البر");
+            txt1.setText(R.string.dar_albar_association);
 
 
             webSite1.setOnClickListener(new View.OnClickListener() {
@@ -1074,5 +1075,6 @@ public class CountryActivity extends AppCompatActivity {
 
 
 
-    }}
+    }
+}
 

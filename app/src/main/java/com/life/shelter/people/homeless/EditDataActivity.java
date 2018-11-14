@@ -1,6 +1,7 @@
 package com.life.shelter.people.homeless;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -41,6 +42,7 @@ public class EditDataActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_data_activity);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // get intent data
         Intent intent = getIntent();
         data = (HomeFirebaseClass) intent.getSerializableExtra("data");
@@ -128,7 +130,7 @@ public class EditDataActivity extends AppCompatActivity {
             // hide progress Bar
             progressBar.setVisibility(View.GONE);
             // success message
-            Toast.makeText(EditDataActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditDataActivity.this, R.string.data_updated, Toast.LENGTH_SHORT).show();
             // clean view data
             nameEditText.setText("");
             addressEditText.setText("");
@@ -139,7 +141,7 @@ public class EditDataActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else
-            Toast.makeText(EditDataActivity.this, "you should fill all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EditDataActivity.this, R.string.fields, Toast.LENGTH_SHORT).show();
 
     }
 }

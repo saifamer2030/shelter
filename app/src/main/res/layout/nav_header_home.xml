@@ -16,13 +16,13 @@
         android:id="@+id/imageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:srcCompat="@drawable/icon" />
+        app:srcCompat="@mipmap/ic_launcher_logo" />
 
     <TextView
         android:id="@+id/namUsser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Shelter ملجأ"
+        android:text="Shelter"
         android:textSize="25sp"
         android:textColor="#000"
         android:textStyle="bold"

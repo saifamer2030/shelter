@@ -3,6 +3,7 @@ package com.life.shelter.people.homeless;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -23,6 +24,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -76,8 +78,8 @@ import java.util.Locale;
 
 
 public class home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, RewardedVideoAdListener {
-    private RewardedVideoAd mRewardedVideoAd;
+        implements NavigationView.OnNavigationItemSelectedListener{
+  //  private RewardedVideoAd mRewardedVideoAd;
     private FirebaseAuth mAuth;
     private StorageReference mStorageRef;
     private DatabaseReference databaseHome;
@@ -89,19 +91,23 @@ public class home extends AppCompatActivity
     private ProgressBar progressBar;
     List<HomeFirebaseClass> trampList;
     private AdView adView;
-    private InterstitialAd mInterstitialAd;
+   // private InterstitialAd mInterstitialAd;
     long time;
+    private InterstitialAd mInterstitial;
+    DrawerLayout drawer;
+    ActionBarDrawerToggle toggle;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         /// ads Admob Saif Amer
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
+     //   mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+       // mRewardedVideoAd.setRewardedVideoAdListener(this);
 
 
 
@@ -111,17 +117,17 @@ public class home extends AppCompatActivity
         adView.loadAd(adRequest);
         adView = new AdView(this);
         adView.setAdSize(AdSize.SMART_BANNER);
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-7419949159214590/4249067821");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-        mInterstitialAd.setAdListener(new AdListener() {
+        mInterstitial = new InterstitialAd(this);
+        mInterstitial.setAdUnitId("ca-app-pub-7419949159214590/4249067821");
+        mInterstitial.loadAd(new AdRequest.Builder().build());
+        /*mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
                 // Load the next interstitial.
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
 
-        });
+        });*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -176,60 +182,25 @@ public class home extends AppCompatActivity
         final String appUrl = "https://play.google.com/store/apps/details?id=com.life.shelter.people.homeless";
 
         if (id == R.id.nav_account) {
-            // ads
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
+
             Intent it = new Intent(home.this, Account.class);
             startActivity(it);
         } else if (id == R.id.nav_about) {
-            // ads
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
             Intent it = new Intent(home.this, About.class);
             startActivity(it);
-        } else if (id == R.id.nav_faq) {
-            // ads
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
+        } /*else if (id == R.id.nav_faq) {
 
             Intent it = new Intent(home.this, FAQ.class);
             startActivity(it);
-        } else if (id == R.id.nav_charitable) {
-            // ads
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
+        }*/ else if (id == R.id.nav_charitable) {
 
             Intent it = new Intent(home.this, CharitableOrganizations.class);
             startActivity(it);
-        } else if (id == R.id.nav_supporting) {
-            // ads
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
+        } /*else if (id == R.id.nav_supporting) {
 
             Intent it = new Intent(home.this, Supporting.class);
             startActivity(it);
-        } else if (id == R.id.nav_developers) {
-            // ads
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
+        } */else if (id == R.id.nav_developers) {
 
             Intent it = new Intent(home.this, Developers.class);
             startActivity(it);
@@ -241,9 +212,9 @@ public class home extends AppCompatActivity
 
         } else if (id == R.id.nav_rate) {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(home.this);
-            dialogBuilder.setTitle("Rate Us");
-            dialogBuilder.setMessage("If you liked it, please rate it.");
-            dialogBuilder.setPositiveButton("Rate", new DialogInterface.OnClickListener() {
+            dialogBuilder.setTitle(R.string.rate_s);
+            dialogBuilder.setMessage(R.string.if_you);
+            dialogBuilder.setPositiveButton(R.string.rate_s, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(appUrl));
@@ -255,23 +226,10 @@ public class home extends AppCompatActivity
             dialog.show();
 
         } else if (id == R.id.nav_profile) {
-            // ads
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
 
             Intent it = new Intent(home.this, ProfileActivity.class);
             startActivity(it);
         } else if (id == R.id.nav_homed) {
-            // ads
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
-
             Intent it = new Intent(home.this, displayOrganizations.class);
             startActivity(it);
 
@@ -281,22 +239,6 @@ public class home extends AppCompatActivity
             it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             finish();
             startActivity(it);
-        } else if (id == R.id.aDonate)
-
-        {
-            // ads
-            /*if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }*/
-
-            //ad Rewarded
-            loadRewardedVideoAd();
-            if (mRewardedVideoAd.isLoaded()) {
-                mRewardedVideoAd.show();
-            }
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -427,7 +369,7 @@ public class home extends AppCompatActivity
         imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
     }
 
-    @Override
+  /*  @Override
     public void onBackPressed() {
 
 
@@ -439,9 +381,9 @@ public class home extends AppCompatActivity
         }
         time = System.currentTimeMillis();
 
-    }
+    }*/
 
-    private void loadRewardedVideoAd() {
+   /* private void loadRewardedVideoAd() {
         mRewardedVideoAd.loadAd("ca-app-pub-7419949159214590/7292584434",
                 new AdRequest.Builder().build());
     }
@@ -479,10 +421,52 @@ public class home extends AppCompatActivity
     @Override
     public void onRewardedVideoAdFailedToLoad(int i) {
         Toast.makeText(this, "Sorry for not having any video now please try again", Toast.LENGTH_LONG).show();
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.");
+
+    }*/
+
+    // Display Interestial ADMOB when User exit App
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            // Toast.makeText(appContext, "BAck", Toast.LENGTH_LONG).show();
+            AlertDialog.Builder alert = new AlertDialog.Builder(
+                    home.this);
+            alert.setTitle(getString(R.string.app_name));
+            alert.setIcon(R.drawable.ic_exit);
+            alert.setMessage(R.string.quit);
+
+            alert.setPositiveButton(R.string.ok,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int whichButton) {
+                            if (mInterstitial.isLoaded()) {
+                                mInterstitial.show();
+                            }
+                            finish();
+                        }
+                    });
+            alert.setNegativeButton(R.string.rate_app,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            final String appName = getPackageName();
+                            try {
+                                startActivity(new Intent(Intent.ACTION_VIEW,
+                                        Uri.parse("https://play.google.com/store/apps/details?id=com.life.shelter.people.homeless"
+                                                + appName)));
+                            } catch (android.content.ActivityNotFoundException anfe) {
+                                startActivity(new Intent(
+                                        Intent.ACTION_VIEW,
+                                        Uri.parse("https://play.google.com/store/apps/details?id=com.life.shelter.people.homeless"
+                                                + appName)));
+                            }
+                        }
+                    });
+            alert.show();
+            return true;
         }
+        return super.onKeyDown(keyCode, event);
     }
+    // End code of Display Interestial ADMOB when User exit App
+
+
 }

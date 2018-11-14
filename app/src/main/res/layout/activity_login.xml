@@ -25,7 +25,7 @@
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:src="@mipmap/icon" />
+            android:src="@mipmap/ic_launcher_logo" />
 
         <TextView
             android:id="@+id/title_login"
@@ -68,7 +68,7 @@
                     android:layout_weight="1"
                     android:background="#00000000"
                     android:drawablePadding="10dp"
-                    android:hint="Email"
+                    android:hint="@string/email_put"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:paddingLeft="10dp"
@@ -102,7 +102,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:background="#00000000"
-                    android:hint="Password"
+                    android:hint="@string/password_put"
                     android:inputType="textPassword"
                     android:paddingLeft="10dp"
                     android:textColor="#fff"
@@ -122,7 +122,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/round"
                 android:gravity="center"
-                android:text="Login"
+                android:text="@string/login_put"
                 android:textColor="#fff"
                 android:textStyle="bold" />
 
@@ -140,7 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Create Account"
+                    android:text="@string/create_account"
                     android:textColor="#FFF" />
 
                 <custom_font.MyTextView
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Forgot your password ?"
+                    android:text="@string/forget_pass"
                     android:textColor="#FFF" />
             </LinearLayout>
 

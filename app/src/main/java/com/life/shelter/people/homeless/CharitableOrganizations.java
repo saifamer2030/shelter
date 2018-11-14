@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ListActivity;
@@ -37,6 +38,7 @@ public class CharitableOrganizations extends ListActivity
             "Turkey", "United Arab Emirates"};
     static Context mcontext;
 
+
     private static int[] listview_images =
             {R.drawable.algeria, R.drawable.egypt, R.drawable.jordan,
                     R.drawable.kuwiat, R.drawable.lebanon, R.drawable.libya, R.drawable.morocco,
@@ -52,6 +54,7 @@ public class CharitableOrganizations extends ListActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_charitable_organizations);
         lv = (ListView) findViewById(android.R.id.list);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         array_sort=new ArrayList<String> (Arrays.asList(listview_names));
         image_sort=new ArrayList<Integer>();
         for (int index = 0; index < listview_images.length; index++)
@@ -173,6 +176,7 @@ public class CharitableOrganizations extends ListActivity
 
             }
         });
+
     }
     public static class bsAdapter extends BaseAdapter
     {

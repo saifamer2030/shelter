@@ -1,6 +1,7 @@
 package com.life.shelter.people.homeless;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class displayOrganizations extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_organizations);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mAuth = FirebaseAuth.getInstance();
 
         databaseTramp= FirebaseDatabase.getInstance().getReference("trampoos");
@@ -120,7 +122,7 @@ public class displayOrganizations extends AppCompatActivity {
 
             }
         } else {
-            Toast.makeText(displayOrganizations.this, "please check the network connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(displayOrganizations.this, R.string.check_the_network, Toast.LENGTH_LONG).show();
 
         }
     }}

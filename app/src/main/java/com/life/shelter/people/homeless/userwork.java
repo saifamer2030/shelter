@@ -1,6 +1,7 @@
 package com.life.shelter.people.homeless;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -40,7 +41,7 @@ public class userwork extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userwork);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // user id from adepter
         userId = getIntent().getStringExtra("userid");
@@ -138,7 +139,7 @@ public class userwork extends AppCompatActivity {
                     }
                 });
             } } else {
-            Toast.makeText(userwork.this, "please check the network connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(userwork.this, R.string.check_the_network, Toast.LENGTH_LONG).show();
         }
 
     }

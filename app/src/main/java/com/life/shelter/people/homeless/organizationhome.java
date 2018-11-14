@@ -1,6 +1,7 @@
 package com.life.shelter.people.homeless;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class organizationhome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orginaztionhome);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         userId = getIntent().getStringExtra("org_homed");
         //Toast.makeText(userwork.this, "+/+ "+userId, Toast.LENGTH_LONG).show();
 
@@ -104,7 +106,7 @@ public class organizationhome extends AppCompatActivity {
                     }
                 });
             } } else {
-            Toast.makeText(organizationhome.this, "please check the network connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(organizationhome.this, R.string.check_the_network, Toast.LENGTH_LONG).show();
         }
 
     }

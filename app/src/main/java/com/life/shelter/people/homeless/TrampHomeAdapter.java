@@ -65,7 +65,7 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
     private List<HomeFirebaseClass> trampList;
     private List<HomeFirebaseClass> mSearchList;
     private String a1, a2;
-    String type,country;
+    String type, country;
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReg;
     ImageView aTrampPhoto;
@@ -131,7 +131,7 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
             public void onClick(View v) {
                 HomeFirebaseClass hometramp = trampList.get(position);
                 Intent uIntent = new Intent(context, userwork.class);
-                uIntent.putExtra("userid",  hometramp.getUserId());
+                uIntent.putExtra("userid", hometramp.getUserId());
                 uIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(uIntent);
                 // context.finish();
@@ -142,7 +142,7 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
             public void onClick(View v) {
                 HomeFirebaseClass hometramp = trampList.get(position);
                 Intent uIntent = new Intent(context, userwork.class);
-                uIntent.putExtra("userid",  hometramp.getUserId());
+                uIntent.putExtra("userid", hometramp.getUserId());
                 uIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(uIntent);
                 // context.finish();
@@ -153,7 +153,7 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
             @Override
             public void onClick(View v) {
                 HomeFirebaseClass hometramp = trampList.get(position);
-                a1=hometramp.getcUri();
+                a1 = hometramp.getcUri();
 
                 Intent uIntent = new Intent(context, trampPhotoActivity.class);
                 uIntent.putExtra("image_url", a1);
@@ -167,35 +167,33 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
         afacelogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                a1=hometramp.getcUri();
+                a1 = hometramp.getcUri();
 
-                String b1=hometramp.getcName();
-                String b2=hometramp.getcAddress();
-                String b3=hometramp.getcCity();
+                String b1 = hometramp.getcName();
+                String b2 = hometramp.getcAddress();
+                String b3 = hometramp.getcCity();
                 HomeFirebaseClass hometramp = trampList.get(position);
-                if (a1!=null)
-                {
+                if (a1 != null) {
                     if (ShareDialog.canShow(ShareLinkContent.class)) {
                         ShareLinkContent linkContent = new ShareLinkContent.Builder()
                                 .setImageUrl(Uri.parse(a1))
                                 .setContentUrl(Uri.parse(a1))
 
 
-                                .setQuote("حالة تحتاج الي مساعدة"+"\n" +b1 + "\n" +
-                                        b2 +"\n" +
+                                .setQuote("حالة تحتاج الي مساعدة" + "\n" + b1 + "\n" +
+                                        b2 + "\n" +
                                         b3)
                                 .build();
                         shareDialog.show(linkContent);
                     }
-                }
-                else {
+                } else {
                     if (ShareDialog.canShow(ShareLinkContent.class)) {
                         ShareLinkContent linkContent = new ShareLinkContent.Builder()
                                 // .setImageUrl(Uri.parse(mylist.get(pos).getDownloadimgurl()))
                                 .setContentUrl(Uri.parse("https://goo.gl/images/Ajo63W"))
 
 
-                                .setQuote("حالة تحتاج الي مساعدة"+"\n" +b1 + "\n" +
+                                .setQuote("حالة تحتاج الي مساعدة" + "\n" + b1 + "\n" +
                                         b2 + "\n" +
                                         b3)
                                 .build();
@@ -203,7 +201,6 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
                     }
 
                 }
-
 
 
             }
@@ -228,22 +225,22 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
 
             }
         });
-/**
+
         atwitterlogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 HomeFirebaseClass hometramp = trampList.get(position);
-                a1=hometramp.getcUri();
-                if (a1!=null) {
-                    new DownloadImage().execute(a1);
+                a1 = hometramp.getcUri();
+                if (a1 != null) {
+                    // new DownloadImage().execute(a1);
                     File path = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
                     File file = new File(path, "DemoPicture.jpg");
                     String imageFullPath = file.getAbsolutePath();
 
                     TweetComposer.Builder builder = new TweetComposer.Builder(context)
                             .text("حالة تحتاج الي مساعدة" + "\n"
-                                    + hometramp.getcName()+ "\n"
-                                    + hometramp.getcAddress()+ "\n"
+                                    + hometramp.getcName() + "\n"
+                                    + hometramp.getcAddress() + "\n"
                                     + hometramp.getcCity())//any sharing text here
                             .image(Uri.parse(imageFullPath));
                     builder.show();
@@ -252,9 +249,9 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
 
                     String tweetUrl = "https://twitter.com/intent/tweet?text="
                             + "حالة تحتاج الي مساعدة" + "\n"
-                            + hometramp.getcName()+ "\n"
-                            + hometramp.getcAddress()+ "\n"
-                            + hometramp.getcCity()+ "\n"
+                            + hometramp.getcName() + "\n"
+                            + hometramp.getcAddress() + "\n"
+                            + hometramp.getcCity() + "\n"
                             + "&url="
                             + Uri.parse("https://goo.gl/images/Ajo63W");
                     Uri uri = Uri.parse(tweetUrl);
@@ -262,7 +259,7 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
 
                 }
             }
-        });**/
+        });
         //////////////////
 
 
@@ -271,48 +268,51 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
             public void onClick(View v) {
 
                 HomeFirebaseClass hometramp = trampList.get(position);
-                a1=hometramp.getcUri();
+                a1 = hometramp.getcUri();
 
-                String b1=hometramp.getcName();
-                String b2=hometramp.getcAddress();
-                String b3=hometramp.getcCity();
-                final String b4= ""+b1+" in "+ b2+", "+b3 +" need your help";
-
-                Glide.with(context)
+                String b1 = hometramp.getcName();
+                String b2 = hometramp.getcAddress();
+                String b3 = hometramp.getcCity();
+                final String b4 = "" + b1 + " in " + b2 + ", " + b3 + " حالة تحتاج إلي مساعدة";
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("image/*");
+                // Bitmap resourse;
+                intent.putExtra(Intent.EXTRA_TEXT, b4);
+                context.startActivity(Intent.createChooser(intent, "share picture"));
+               /* Glide.with(context)
                         .asBitmap()
                         .load(a1)
                         .into(new SimpleTarget<Bitmap>() {
                             @Override
                             public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
-                                Intent intent = new Intent(Intent.ACTION_SEND);
-                                intent.setType("image/*");
-                                // Bitmap resourse;
-                                intent.putExtra(Intent.EXTRA_STREAM, getLocationBitmapUri(resource));
-                                intent.putExtra(Intent.EXTRA_TEXT, b4 );
-                                context.startActivity(Intent.createChooser(intent, "share picture"));
-                            }
-                        });
+
+                                }
+
+                        });*/
 
             }
         });
 
 
-
 ///////////////////////////////////////////////////////////////////
         //chech box action
-        final CheckBox tasken =(CheckBox)listViewItem.findViewById(R.id.tasken);
-        final ImageView goon =(ImageView) listViewItem.findViewById(R.id.go_on);
+        final CheckBox tasken = (CheckBox) listViewItem.findViewById(R.id.tasken);
+        final ImageView goon = (ImageView) listViewItem.findViewById(R.id.go_on);
         // update check box status
         tasken.setChecked(hometramp.getChecked());//normal code retrive status of checkbox from firebase
 
         if (hometramp.getOrganizationId() != null) {
             if (hometramp.getOrganizationName() != null) {
                 tasken.setText(hometramp.getOrganizationName());
-            }else{tasken.setText("Unknown Name");}
+            } else {
+                tasken.setText(R.string.unknown);
+            }
             goon.setVisibility(View.VISIBLE);
 
-        }else{ tasken.setText("not housed");
-            goon.setVisibility(View.GONE);}
+        } else {
+            tasken.setText(R.string.not_housed);
+            goon.setVisibility(View.GONE);
+        }
         // check box listener
         tasken.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -324,12 +324,13 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
             @Override
             public void onClick(View v) {
                 if (hometramp.getOrganizationId() != null) {
-                    String a10=hometramp.getOrganizationId();
+                    String a10 = hometramp.getOrganizationId();
 
                     Intent uIntent = new Intent(context, organizationhome.class);
                     uIntent.putExtra("org_homed", a10);
                     uIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(uIntent);}
+                    context.startActivity(uIntent);
+                }
 
             }
         });
@@ -343,7 +344,7 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
         aTrampAddress.setText(hometramp.getcAddress());
         aTrampCity.setText(hometramp.getcCity());
 
-        a1=hometramp.getcUri();
+        a1 = hometramp.getcUri();
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions = requestOptions.transforms(new RoundedCorners(16));
@@ -354,26 +355,26 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
                 .into(aTrampPhoto);
 
 
-
         aDate.setText(hometramp.getPdate());
 
         ////////////////////////////////
-        a2=hometramp.getUserUri();
+        a2 = hometramp.getUserUri();
 
-        if(a2 != null){
+        if (a2 != null) {
             Glide.with(context)
                     .load(a2)
                     .apply(RequestOptions.circleCropTransform())
                     .into(aUserPhoto);
-        }else {
+        } else {
             Glide.with(context)
                     .load("https://firebasestorage.googleapis.com/v0/b/shelter-87aaa.appspot.com/o/user.png?alt=media&token=0a6b51c3-f1ec-4fea-a0eb-a7eaa45875d4")
                     .apply(RequestOptions.circleCropTransform())
-                    .into(aUserPhoto);         }
+                    .into(aUserPhoto);
+        }
 
-        if(hometramp.getUsername() != null){
+        if (hometramp.getUsername() != null) {
             aUserName.setText(hometramp.getUsername());
-        }else {
+        } else {
 
             aUserName.setText("Unknown name");
 
@@ -386,7 +387,7 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
         moreOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v("Click","More Image ");
+                Log.v("Click", "More Image ");
                 getRegData("more", hometramp, position);
             }
         });
@@ -396,12 +397,12 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
     }
 
     private void getRegData(String action, HomeFirebaseClass homeFirebaseClass, int position) {
-        getRegData(action, homeFirebaseClass,position, null, null,null);
+        getRegData(action, homeFirebaseClass, position, null, null, null);
     }
 
     private void getRegData(String action, HomeFirebaseClass homeFirebaseClass, Boolean isChecked,
-                            CompoundButton buttonView ,TextView tasken) {
-        getRegData(action, homeFirebaseClass,0, isChecked, buttonView,tasken);
+                            CompoundButton buttonView, TextView tasken) {
+        getRegData(action, homeFirebaseClass, 0, isChecked, buttonView, tasken);
     }
 
     private void getRegData(final String action, final HomeFirebaseClass homeFirebaseClass, final int position,
@@ -427,12 +428,12 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
                 // Getting Post failed, log a message
             }
         };
-        databaseReg .addValueEventListener(postListener);
+        databaseReg.addValueEventListener(postListener);
     }
 
     private void changeCheckBoxStatus(Boolean isChecked, HomeFirebaseClass homeFirebaseClass, CompoundButton buttonView, TextView tasken) {
         if (!type.equals("Organization")) {
-            Toast.makeText(context, "you must be an organization", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.you_must_be_an_organization, Toast.LENGTH_LONG).show();
             buttonView.setChecked(false);
             return;
         }
@@ -448,7 +449,7 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
 
             homeFirebaseClass.setOrganizationId(mAuth.getCurrentUser().getUid());
 
-            if(user.getDisplayName() != null){
+            if (user.getDisplayName() != null) {
                 tasken.setText(user.getDisplayName());
                 homeFirebaseClass.setOrganizationName(user.getDisplayName());
             } else {
@@ -542,26 +543,29 @@ public class TrampHomeAdapter extends ArrayAdapter<HomeFirebaseClass> implements
                 dialog.setCanceledOnTouchOutside(false);
                 // show dialog view
                 dialog.show();
-            }else{Toast.makeText(context, "tramp is housed", Toast.LENGTH_LONG).show();}
+            } else {
+                Toast.makeText(context, R.string.tramp_is_housed, Toast.LENGTH_LONG).show();
+            }
 
         } else
-            Log.v("Dialog","Not Owner!.");
+            Log.v("Dialog", "Not Owner!.");
         // Toast.makeText(context, "لست صاحب المنشور .. لايمكنك تعديله", Toast.LENGTH_LONG).show();
     }
 
-    private Uri getLocationBitmapUri(Bitmap bmp){
-        Uri BmpUri= null;
+    private Uri getLocationBitmapUri(Bitmap bmp) {
+        Uri BmpUri = null;
         try {
-            File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES),"share picture_"+System.currentTimeMillis()+".jpeg");
-            FileOutputStream out= new FileOutputStream(file);
-            bmp.compress(Bitmap.CompressFormat.PNG,90,out);
+            File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share picture_" + System.currentTimeMillis() + ".jpeg");
+            FileOutputStream out = new FileOutputStream(file);
+            bmp.compress(Bitmap.CompressFormat.PNG, 90, out);
             out.close();
-            BmpUri=Uri.fromFile(file);
+            BmpUri = Uri.fromFile(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        }return BmpUri;
+        }
+        return BmpUri;
 
     }
 

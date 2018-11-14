@@ -1,5 +1,6 @@
 package com.life.shelter.people.homeless;
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -15,7 +16,7 @@ public class trampPhotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tramp_photo);
         url = getIntent().getStringExtra("image_url");
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         myImage = findViewById(R.id.mylargeImage);
         Glide.with(this).load(url)
                 .into(myImage);

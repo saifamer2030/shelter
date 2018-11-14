@@ -18,7 +18,7 @@
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/icon" />
+            android:src="@mipmap/ic_launcher_logo" />
 
         <custom_font.MyTextView
             android:id="@+id/title_reister"
@@ -29,7 +29,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginTop="17dp"
             android:gravity="center"
-            android:text="Create Account"
+            android:text="@string/create_account"
             android:textColor="#fff"
             android:textSize="20dp" />
 
@@ -64,7 +64,7 @@
                     android:layout_weight="1"
                     android:background="#00000000"
                     android:drawablePadding="10dp"
-                    android:hint="Email Address"
+                    android:hint="@string/email_address"
                     android:inputType="textEmailAddress"
                     android:letterSpacing="0.1"
                     android:maxLines="1"
@@ -98,7 +98,7 @@
                     android:layout_weight="1"
                     android:background="#00000000"
                     android:drawablePadding="10dp"
-                    android:hint="Password"
+                    android:hint="@string/password_put"
                     android:inputType="textPassword"
                     android:letterSpacing="0.1"
                     android:paddingLeft="10dp"
@@ -132,7 +132,7 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:background="#00000000"
-                    android:hint="Confirm Password"
+                    android:hint="@string/confirm_password"
                     android:inputType="textPassword"
                     android:letterSpacing="0.1"
                     android:paddingLeft="10dp"
@@ -231,7 +231,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Choose Your Country"
+                    android:text="@string/choose_your_country"
                     android:textColor="#fff" />
 
                 <Spinner
@@ -258,7 +258,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Choose Your Type"
+                    android:text="@string/choose_your_type"
                     android:textColor="#fff" />
 
                 <Spinner
@@ -286,7 +286,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/round"
                 android:gravity="center"
-                android:text="Singup"
+                android:text="@string/singup"
                 android:textColor="#fff"
                 android:textStyle="bold" />
 
@@ -303,7 +303,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Login !"
+                    android:text="@string/login_put"
                     android:textColor="#FFF" />
             </LinearLayout>
 

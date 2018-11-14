@@ -2,6 +2,7 @@ package com.life.shelter.people.homeless;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class Account extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         addTrampButton = (ImageView) findViewById(R.id.takepic);
 
         mAuth = FirebaseAuth.getInstance();
@@ -145,7 +147,7 @@ public class Account extends AppCompatActivity {
                 });
             }
         } else {
-            Toast.makeText(Account.this, "please check the network connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(Account.this, R.string.check_the_network, Toast.LENGTH_LONG).show();
         }
 
     }

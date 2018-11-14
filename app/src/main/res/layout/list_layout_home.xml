@@ -62,7 +62,7 @@
         <ImageView
             android:id="@+id/tramp_photo"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="180dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:scaleType="fitXY"
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:text="Name"
+                android:text="@string/name_n"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black" />
 
@@ -88,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tramp_name"
-                android:text="Address"
+                android:text="@string/address_tramp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black" />
 
@@ -97,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tramp_address"
-                android:text="City"
+                android:text="@string/city_tramp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/black" />
             <RelativeLayout
@@ -110,7 +110,7 @@
                 android:id="@+id/tasken"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Homed " />
+                android:text="@string/homed" />
                 <ImageView
                     android:id="@+id/go_on"
                     android:layout_width="wrap_content"
@@ -128,16 +128,16 @@
 
                 <ImageView
                     android:id="@+id/tweeter_logo"
-                    android:layout_width="0dp"
+                    android:layout_width="20dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="20dp"
                     android:layout_margin="8dp"
                     android:src="@drawable/tt"/>
                 <ImageView
                     android:id="@+id/fac_logo"
-                    android:layout_width="0dp"
+                    android:layout_width="20dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="20dp"
                     android:src="@drawable/ff"
                     android:layout_margin="8dp"
                     />
@@ -154,8 +154,8 @@
 
                 <ImageView
                     android:id="@+id/share_logo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:src="@drawable/share50" />

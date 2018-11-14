@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -77,7 +78,7 @@ public class Designers extends ListActivity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m2act);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         lv = (ListView) findViewById(android.R.id.list);
@@ -92,7 +93,7 @@ public class Designers extends ListActivity{
         }
         setListAdapter(new Designers.bsAdapter(this));
         textView = (TextView) findViewById(R.id.message);
-        textView.setText("فريق التصميم");
+        textView.setText(R.string.title_notifications);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> arg0,

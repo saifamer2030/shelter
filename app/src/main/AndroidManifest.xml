@@ -59,7 +59,8 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".home" />
 
-        <activity android:name=".WebActivity" />
+        <activity android:name=".WebActivity"
+            android:theme="@style/AppThemeno"/>
         <activity
             android:name=".Account"
             android:label="Account"
@@ -80,7 +81,8 @@
         <activity
             android:name=".organizationhome"
             android:label="organizationhome"
-            android:parentActivityName=".home" />
+            android:parentActivityName=".home"
+            android:theme="@style/AppThemeno"/>
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -98,7 +100,8 @@
         <activity
             android:name=".CharitableOrganizations"
             android:label="Charitable Organizations"
-            android:parentActivityName=".home" />
+            android:parentActivityName=".home"
+            android:theme="@style/AppThemeno"/>
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -112,11 +115,6 @@
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".home" />
-
-        <activity
-            android:name=".FAQ"
-            android:label="FAQ"
-            android:parentActivityName=".home" />
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
@@ -141,15 +139,20 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".CountryActivity" />
-        <activity android:name=".m2act" />
+        <activity android:name=".CountryActivity"
+            android:theme="@style/AppThemeno"/>
+        <activity android:name=".m2act"
+            android:theme="@style/AppThemeno"/>
         <activity android:name=".Programmers" />
         <activity android:name=".Designers" />
-        <activity android:name=".WebViewActivity" />
+        <activity android:name=".WebViewActivity"
+            android:theme="@style/AppThemeno"/>
         <activity android:name=".XmlTeam" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".trampdata" />
-        <activity android:name=".trampPhotoActivity" />
+        <activity android:name=".trampdata"
+            android:theme="@style/AppThemeno"/>
+        <activity android:name=".trampPhotoActivity"
+            android:theme="@style/AppThemeno"/>
         <activity android:name=".userwork" />
         <activity android:name=".EditDataActivity" />
         <activity android:name=".displayOrganizations" />

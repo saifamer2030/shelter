@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ListActivity;
@@ -84,7 +85,7 @@ public class Developers extends ListActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_developers);
         lv = (ListView) findViewById(android.R.id.list);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         array_sort=new ArrayList<String> (Arrays.asList(listview_names));
         array_sort1=new ArrayList<String> (Arrays.asList(listview_emails));
         array_sort2=new ArrayList<String> (Arrays.asList(listview_linkedin));
